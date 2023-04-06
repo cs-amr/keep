@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+  darkMode: 'class',
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
@@ -8,13 +9,13 @@ export default {
     extend: {
       fontFamily: {
         "opensans":['Open Sans', 'sans-serif'],
-        'jakarta': ['Plus Jakarta Sans', 'sans-serif'],
       },
       colors:{
         'light-bg':'#ffffff',
         "light-border":"#e0e0e0",
         "light-sec":"#f1f3f4",
-        "light-text":"##202124",
+        "light-text":"#202124",
+        "light-h":"#5f6368",
         "light-btn":"#feefc3",
         'dark-bg':'#202124',
         "dark-border":"#5f6368",

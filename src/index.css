@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+div[placeholder]:empty:before {
+  content: attr(placeholder);
+}
+.modall {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: min(100%, 600px);
+}
+.modal button {
+  display: inline-block;
+}

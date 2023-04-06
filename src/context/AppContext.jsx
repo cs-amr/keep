@@ -3,8 +3,10 @@ import { createContext, useContext, useEffect, useState } from "react";
 const AppContext = createContext();
 
 export default function AppProvider({ children }) {
-  const [darkMode, setDarkMode] = useState(true);
+  const [darkMode, setDarkMode] = useState(false);
   const [sidebarOpen, SetSidebarOpen] = useState(true);
+  const [columnView, setcolumnView] = useState(true);
+
   return (
     <AppContext.Provider
       value={{
@@ -12,6 +14,8 @@ export default function AppProvider({ children }) {
         setDarkMode,
         sidebarOpen,
         SetSidebarOpen,
+        columnView,
+        setcolumnView,
       }}
     >
       {children}
