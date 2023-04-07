@@ -1,15 +1,27 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-div[placeholder]:empty:before {
-  content: attr(placeholder);
-}
-.modall {
+
+.modal-card {
   position: absolute;
-  left: 50%;
-  transform: translate(-50%, 0);
-  width: min(100%, 600px);
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  max-width: 600px;
+  width: min(60vw, 600px);
+  z-index: 30;
+  scale: 1.2;
+  -webkit-box-shadow: 10px 10px 15px 0px rgba(0, 0, 0, 0.35);
+  -moz-box-shadow: 10px 10px 15px 0px rgba(0, 0, 0, 0.35);
+  box-shadow: 10px 10px 15px 0px rgba(0, 0, 0, 0.35);
 }
-.modal button {
+.modal-card > div {
+  opacity: 1;
+}
+.modal-card > div div button:nth-last-child(1) {
   display: inline-block;
+  width: 1rem;
+  margin-left: 0 auto;
 }

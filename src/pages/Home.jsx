@@ -1,13 +1,15 @@
+import { useEffect } from "react";
 import Board from "../components/Board";
 import Header from "../components/Header";
+import Sidebar from "../components/Sidebar";
 import { useGlobal } from "../context/AppContext";
+import { useNavigate } from "react-router-dom";
 
 export default function Home() {
-  const { darkMode, setDarkMode } = useGlobal();
   return (
-    <div className={`${darkMode ? "dark" : ""} font-opensans`}>
+    <div>
       <Header />
-      <div>
+      <div className="flex">
         <Board />
       </div>
     </div>

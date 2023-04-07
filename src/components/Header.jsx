@@ -3,7 +3,7 @@ import { useGlobal } from "../context/AppContext";
 export default function Header() {
   const { darkMode, setDarkMode, columnView, setcolumnView } = useGlobal();
   return (
-    <header className=" h-16 p-2 bg-light-bg dark:bg-dark-bg border-b-[1px] border-light-border dark:border-dark-border text-light-h fixed top-0 w-screen">
+    <header className=" h-16 p-2 px-4 bg-light-bg dark:bg-dark-bg border-b-[1px] border-light-border dark:border-dark-border text-light-h fixed top-0 w-screen">
       <div className="flex h-full items-center">
         <div className="px-[10px] py-[10px] rounded-full hover:bg-light-sec dark:hover:bg-dark-sec ">
           <svg
@@ -82,7 +82,7 @@ export default function Header() {
         <div className="w-10 h-10 bg-orange-500 rounded-full">
           <div className=" m-auto w-fit h-fit text-3xl text-white relative group ">
             A
-            <div className="absolute w-32 h-40 top-8 right-0  hidden group-hover:block">
+            <div className="absolute w-32 h-40 top-8 right-0 block hidden">
               <ul className="bg-light-bg text-2xl dark:bg-dark-bg text-light-text dark:text-dark-text border border-light-border dark:border-dark-border">
                 <li>Sign Out</li>
                 <li>Settings</li>

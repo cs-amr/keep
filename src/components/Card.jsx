@@ -1,17 +1,35 @@
 import { useGlobal } from "../context/AppContext";
 
-export default function Card() {
+export default function Card({ setModalOpen, title, note }) {
   const { darkMode, columnView } = useGlobal();
   return (
     <div
-      className={`min-w-[240px] h-32 group border border-light-border dark:border-dark-border rounded-md m-4 text-light-text dark:text-dark-text modal ${
+      onClick={(e) => {
+        console.log(e.currentTarget);
+        setModalOpen(true);
+
+        e.currentTarget.classList.add("modal-card");
+      }}
+      className={`bg-light-bg dark:bg-dark-bg  shadow-md  min-w-[240px] h-32 group border border-light-border dark:border-dark-border rounded-md m-4 text-light-text dark:text-dark-text  ${
         columnView ? "justify-stretch" : "max-w-[240px]"
       }`}
     >
-      <p className="px-4 pt-3 font-medium text-base ">fopas</p>
-      <p className="px-4 pt-[4px] pb-3 text-lg font-normal">kopasf</p>
+      <p
+        contentEditable
+        suppressContentEditableWarning={true}
+        className=" outline-none px-4 pt-3 font-medium text-base "
+      >
+        {title}
+      </p>
+      <p
+        contentEditable
+        suppressContentEditableWarning={true}
+        className="outline-none px-4 pt-[4px] pb-3 text-lg font-normal"
+      >
+        {note}
+      </p>
       <div className="opacity-0 duration-300 group-hover:opacity-100">
-        <div className={` mx-4 my-[10px]  group-hover:flex  hidden}`}>
+        <div className={` mx-4 my-[10px] flex }`}>
           <button
             className={`w-8 h-8   rounded-full hover:bg-light-sec dark:hover:bg-dark-sec ${
               darkMode ? "text-dark-text" : "text-light-text"
@@ -30,7 +48,7 @@ export default function Card() {
             </svg>
           </button>
           <button
-            className={`w-8 h-8  rounded-full hover:bg-light-sec dark:hover:bg-dark-sec ${
+            className={`w-8 h-8  rounded-full hover:bg-light-sec dark:hover:bg-dark-sec mr-auto ${
               darkMode ? "text-dark-text" : "text-light-text"
             }`}
           >
@@ -44,6 +62,9 @@ export default function Card() {
             >
               <path d="M.002 3a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-12a2 2 0 0 1-2-2V3zm1 9v1a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12zm5-6.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0z" />
             </svg>
+          </button>
+          <button className="text-light-text    dark:text-dark-text font-semibold ml-auto mr-4 hidden">
+            save
           </button>
         </div>
       </div>

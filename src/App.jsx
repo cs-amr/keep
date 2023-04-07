@@ -5,8 +5,10 @@ import Home from "./pages/Home";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 export default function App() {
+  const { darkMode, setDarkMode } = useGlobal();
+
   return (
-    <main>
+    <main className={`${darkMode ? "dark" : ""} font-opensans`}>
       <BrowserRouter>
         <Routes>
           <Route path="/">
