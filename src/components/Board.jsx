@@ -24,14 +24,26 @@ export default function Board() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    setDoc(doc(db, "users", user.uid), {
-      notes: notes
-        ? [
-            ...notes,
-            { id: uuidv4(), title: e.target[0].value, note: e.target[1].value },
-          ]
-        : [{ id: uuidv4(), title: e.target[0].value, note: e.target[1].value }],
-    });
+    if (e.target[0].value && e.target[1].value) {
+      setDoc(doc(db, "users", user.uid), {
+        notes: notes
+          ? [
+              ...notes,
+              {
+                id: uuidv4(),
+                title: e.target[0].value,
+                note: e.target[1].value,
+              },
+            ]
+          : [
+              {
+                id: uuidv4(),
+                title: e.target[0].value,
+                note: e.target[1].value,
+              },
+            ],
+      });
+    }
     e.target.reset();
   }
   console.log(notes);
@@ -132,13 +144,16 @@ export default function Board() {
               columnView ? "max-w-[616px] grid" : "w-auto "
             }`}
           >
-            {notes?.map(({ id, note, title, index }) => {
+            {notes?.map(({ id, note, title }, index) => {
               return (
                 <Card
                   setModalOpen={setModalOpen}
                   key={index}
+                  id={id}
                   note={note}
                   title={title}
+                  notes={notes}
+                  index={index}
                 />
               );
             })}
