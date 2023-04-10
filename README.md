@@ -7,8 +7,9 @@ users must be able to create data, have access to the data in the UI by reading 
 * Tailwind
 * Firebase
 
-###Features
-Users can  login and register a new user
-users can create new notes ,update and delete notes
-Dark / Light Mode
+### Features
+* Users can  login and register a new user
+* users can create new notes ,update and delete notes
+* Dark / Light Mode
+* users can style cards
 
