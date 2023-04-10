@@ -12,3 +12,6 @@ The website allows users to create, read, update and delete notes using a simple
 * Dark / Light Mode
 * users can style cards
 
+## Demo Account
+email: demo@gmail.com 
+password: demopassword
