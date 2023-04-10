@@ -1,20 +1,15 @@
+import { useState } from "react";
 import { useGlobal } from "../context/AppContext";
-
+import { signOut, getAuth } from "firebase/auth";
 export default function Header() {
-  const { darkMode, setDarkMode, columnView, setcolumnView } = useGlobal();
+  const { darkMode, setDarkMode, columnView, setcolumnView, user, setUser } =
+    useGlobal();
+  const auth = getAuth();
+  const [signoutOpen, setSignoutOpen] = useState(false);
   return (
     <header className=" h-16 p-2 px-4 bg-light-bg dark:bg-dark-bg border-b-[1px] border-light-border dark:border-dark-border text-light-h fixed top-0 w-screen">
       <div className="flex h-full items-center">
-        <div className="px-[10px] py-[10px] rounded-full hover:bg-light-sec dark:hover:bg-dark-sec ">
-          <svg
-            focusable="false"
-            className="w-6 h-6 "
-            fill={` ${darkMode ? "white" : "#5f6368"}`}
-            viewBox="0 0 24 24"
-          >
-            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
-          </svg>
-        </div>
+        <div className="px-[10px] py-[10px] rounded-full hover:bg-light-sec dark:hover:bg-dark-sec "></div>
         <h1 className=" mr-auto w-fit  text-2xl leading-6  font-semibold dark:text-dark-text text-light-h ">
           Keep
         </h1>
@@ -23,6 +18,7 @@ export default function Header() {
           onClick={() => {
             setcolumnView(!columnView);
           }}
+          title="list view"
           className=" px-[10px] py-[10px] hover:bg-light-sec dark:hover:bg-dark-sec rounded-full"
         >
           {columnView ? (
@@ -79,14 +75,27 @@ export default function Header() {
             </svg>
           )}
         </div>
-        <div className="w-10 h-10 bg-orange-500 rounded-full">
+        <div
+          className="w-10 h-10 bg-orange rounded-full"
+          onClick={() => {
+            setSignoutOpen(!signoutOpen);
+          }}
+        >
           <div className=" m-auto w-fit h-fit text-3xl text-white relative group ">
-            A
-            <div className="absolute w-32 h-40 top-8 right-0 block hidden">
-              <ul className="bg-light-bg text-2xl dark:bg-dark-bg text-light-text dark:text-dark-text border border-light-border dark:border-dark-border">
-                <li>Sign Out</li>
-                <li>Settings</li>
-              </ul>
+            {user && user?.displayName[0].toUpperCase()}
+            <div
+              className={`absolute w-32 h-40 top-8 right-0 ${
+                signoutOpen ? "block" : "hidden"
+              } `}
+            >
+              <diiv className="bg-light-bg text-2xl dark:bg-dark-bg text-light-text dark:text-dark-text border border-light-border dark:border-dark-border">
+                <button
+                  className="p-2"
+                  onClick={() => signOut(auth).then(() => setUser(null))}
+                >
+                  Sign Out
+                </button>
+              </diiv>
             </div>
           </div>
         </div>

@@ -1,4 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
+import { auth } from "../firebase";
+import { onAuthStateChanged } from "firebase/auth";
 
 const AppContext = createContext();
 
@@ -7,6 +9,15 @@ export default function AppProvider({ children }) {
   const [sidebarOpen, SetSidebarOpen] = useState(true);
   const [columnView, setcolumnView] = useState(true);
   const [user, setUser] = useState(null);
+  useEffect(() => {
+    const unsub = onAuthStateChanged(auth, (user) => {
+      setUser(user);
+    });
+
+    return () => {
+      unsub();
+    };
+  }, []);
 
   return (
     <AppContext.Provider

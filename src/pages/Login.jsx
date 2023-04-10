@@ -14,9 +14,7 @@ export default function Login() {
     const password = e.target[1].value;
 
     signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        const user = userCredential.user;
-        setUser(user);
+      .then(() => {
         navigate("../");
         e.target.reset();
       })
@@ -36,7 +34,7 @@ export default function Login() {
           <h1 className="w-fit mx-auto text-3xl leading-6 text-white font-bold mb-4">
             Keep
           </h1>
-          <div className="text-red-600 mx-auto">{error}</div>
+          <div className="text-red mx-auto">{error}</div>
           <input
             type="email"
             name="email"

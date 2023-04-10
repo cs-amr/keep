@@ -1,7 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+input[type="radio"] bullet {
+  opacity: 0;
+}
 .modal-card {
   position: absolute;
   left: 0;
@@ -20,8 +22,9 @@
 .modal-card > div {
   opacity: 1;
 }
-.modal-card > div div button:nth-last-child(1) {
+.modal-card > div div button:nth-last-child(1),
+.modal-card > div div button:nth-last-child(2) {
+  margin-inline: 1.5rem;
   display: inline-block;
   width: 1rem;
-  margin-left: 0 auto;
 }
