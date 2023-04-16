@@ -1,14 +1,17 @@
 # keep 
-CRUD Operations
-users must be able to create data, have access to the data in the UI by reading the data, update or edit the data, and delete the data
-### Built With
+## CRUD Operations
+The website allows users to create, read, update and delete notes using a simple interface. Users can also categorize their notes by color and add custom styling to each Note### Built With
 * React 
 * Javascript 
 * Tailwind
 * Firebase
 
-###Features
-Users can  login and register a new user
-users can create new notes ,update and delete notes
-Dark / Light Mode
+### Features
+* Users can  login and register a new user
+* users can create new notes ,update and delete notes
+* Dark / Light Mode
+* users can style cards
 
+## Demo Account
+email: demo@gmail.com 
+password: demopassword
