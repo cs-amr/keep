@@ -1,4 +1,10 @@
 # keep 
+# Demo Account
+* email: demo@gmail.com 
+* password: demopassword
+
+
+
 ## CRUD Operations
 The website allows users to create, read, update and delete notes using a simple interface. Users can also categorize their notes by color and add custom styling to each Note### Built With
 * React 
@@ -12,6 +18,4 @@ The website allows users to create, read, update and delete notes using a simple
 * Dark / Light Mode
 * users can style cards
 
-## Demo Account
-email: demo@gmail.com 
-password: demopassword
+#
