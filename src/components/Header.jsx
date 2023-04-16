@@ -82,20 +82,20 @@ export default function Header() {
           }}
         >
           <div className=" m-auto w-fit h-fit text-3xl text-white relative group ">
-            {user && user?.displayName[0].toUpperCase()}
+            {user?.displayName && user?.displayName[0].toUpperCase()}
             <div
               className={`absolute w-32 h-40 top-8 right-0 ${
                 signoutOpen ? "block" : "hidden"
               } `}
             >
-              <diiv className="bg-light-bg text-2xl dark:bg-dark-bg text-light-text dark:text-dark-text border border-light-border dark:border-dark-border">
+              <div className="bg-light-bg text-2xl dark:bg-dark-bg text-light-text dark:text-dark-text border border-light-border dark:border-dark-border">
                 <button
                   className="p-2"
                   onClick={() => signOut(auth).then(() => setUser(null))}
                 >
                   Sign Out
                 </button>
-              </diiv>
+              </div>
             </div>
           </div>
         </div>
