@@ -40,12 +40,14 @@ export default function Login() {
             name="email"
             placeholder="Email"
             id="email"
+            defaultValue="demo@gmail.com"
             className="px-4 py-2 w-full border-b-2 focus:outline-none text-lg bg-transparent text-white"
           />
           <input
             type="password"
             name="password"
             placeholder="Password"
+            defaultValue="demopassword"
             id="password"
             className="px-4 py-2 w-full border-b-2 focus:outline-none text-lg bg-transparent text-white"
           />
